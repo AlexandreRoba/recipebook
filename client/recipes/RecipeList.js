@@ -14,6 +14,12 @@ Template.RecipeList.helpers({
     }
 });
 
+Template.RecipeList.events({
+    'click .new-recipe'(){
+        Session.set('newRecipe',true);
+    }
+});
+
 
 
 
