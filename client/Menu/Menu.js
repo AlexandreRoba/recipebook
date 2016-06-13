@@ -1,6 +1,6 @@
 import {Template} from 'meteor/templating';
 
-Template.RecipeList.onCreated(function onCreated() {
+Template.Menu.onCreated(function onCreated() {
     //We subscribe the template to the the subscription
     var self = this;
     self.autorun(function(){
@@ -8,9 +8,9 @@ Template.RecipeList.onCreated(function onCreated() {
     });
 });
 
-Template.RecipeList.helpers({
+Template.Menu.helpers({
     recipes(){
-        return Recipes.find({});
+        return Recipes.find({inMenu:true});
     }
 });
 

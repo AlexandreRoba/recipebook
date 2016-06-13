@@ -1,7 +1,10 @@
 import {Meteor} from 'meteor/meteor';
 
 Meteor.publish('myRecipes', function () {
-    let count = Recipes.find({author:this.userId}).count();
-    console.log(`Published recipes:${count}`);
-    Recipes.find({author:this.userId});
+    return Recipes.find({author:this.userId});
+});
+
+Meteor.publish('singleRecipe', function (id) {
+    check(id, String);
+    return Recipes.find({_id:id});
 });
